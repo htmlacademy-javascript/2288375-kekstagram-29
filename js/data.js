@@ -1,4 +1,4 @@
-import {getRandomNumberFromRange, getCommentObj} from './util.js';
+import {getRandomNumberFromRange} from './util.js';
 
 const DESCRIPTIONS = [
   'Если чётко сформулировать желание для Вселенной, то всё обязательно сбудется. Верьте в себя. Главное хотеть и мечтать.....',
@@ -26,6 +26,13 @@ const NAMES = [
   'Катерина'
 ];
 
+const getCommentObj = () => ({
+  id: getRandomNumberFromRange(1, 25),
+  avatar: `img/${getRandomNumberFromRange(1, 6)}.svg`,
+  message: MESSAGES[getRandomNumberFromRange(0, MESSAGES.length)],
+  name: NAMES[getRandomNumberFromRange(0, NAMES.length)]
+});
+
 const getPhotoObj = (index) => ({
   id: index,
   url: `photo/${index}.jpg`,
@@ -38,4 +45,4 @@ const photos = Array.from({length: 25}, (_, index) => getPhotoObj(index + 1));
 
 window.console.log(photos);
 
-export {DESCRIPTIONS, MESSAGES, NAMES, photos};
+export {photos};
