@@ -35,14 +35,12 @@ const getCommentObj = () => ({
 
 const getPhotoObj = (index) => ({
   id: index,
-  url: `photo/${index}.jpg`,
+  url: `photos/${index}.jpg`,
   description: DESCRIPTIONS[getRandomNumberFromRange(0, DESCRIPTIONS.length)],
   likes: getRandomNumberFromRange(15, 200),
   comments: Array.from({length: getRandomNumberFromRange(0, 25)}, getCommentObj)
 });
 
-const photos = Array.from({length: 25}, (_, index) => getPhotoObj(index + 1));
+export const getPhotosData = Array.from({length: 25}, (_, index) => getPhotoObj(index + 1));
 
-window.console.log(photos);
 
-export {photos};

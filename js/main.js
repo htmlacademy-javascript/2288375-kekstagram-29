@@ -1,3 +1,6 @@
-import {photos} from './data.js';
+import {getPhotosData} from './data.js';
+import {renderPictures} from './pictures.js';
 
-console.log (photos());
+window.console.log(getPhotosData);
+
+renderPictures(getPhotosData);
