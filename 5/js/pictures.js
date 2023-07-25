@@ -1,8 +1,6 @@
 const picturesContainer = document.querySelector('.pictures');
 const fragment = document.createDocumentFragment();
-const cardTemplate = document
-.querySelector('#picture')
-.content.querySelector('.picture');
+const cardTemplate = document.querySelector('#picture').content.querySelector('.picture');
 
 // console.log(cardTemplate)
 
@@ -18,6 +16,6 @@ const fillCardTemplate = ({url, description, comments, likes}) => {
 export const renderPictures = (data) => {
   data.forEach((cardObj) => {
     fragment.appendChild(fillCardTemplate(cardObj));
-  })
+  });
   picturesContainer.appendChild(fragment);
 };
