@@ -14,9 +14,15 @@ function renderBooklet() {
   popupContainer.insertAdjacentElement('afterbegin', successBooklet);
 }
 
+const messageDelete = (cls) => {
+  const booklet = bodyElement.querySelector(`.${cls}`);
+  booklet.remove();
+};
+
 renderBooklet();
 
 export function showBooklet(cls) {
+  renderBooklet();
   const booklet = bodyElement.querySelector(`.${cls}`);
   const bookletInner = bodyElement.querySelector(`.${cls}__inner`);
   const bookletCloseButton = booklet.querySelector(`.${cls}__button`);
@@ -44,7 +50,7 @@ export function showBooklet(cls) {
   booklet.addEventListener('click',onScreenAreaClick);
 
   function closePopup () {
-    bodyElement.querySelector(`.${cls}`).classList.add('hidden');
+    messageDelete (cls);
     document.removeEventListener('keydown', onDocumentKeydown);
     bookletCloseButton.removeEventListener('click', oncloseButtonClick);
     booklet.removeEventListener('click',onScreenAreaClick);
