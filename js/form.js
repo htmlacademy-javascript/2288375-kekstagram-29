@@ -62,7 +62,6 @@ const hasUniqueTags = (value) => {
   return lowerCaseTags.length === new Set(lowerCaseTags).size;
 };
 
-
 function onFormFieldKeydown(evt) {
   if (isEscapeKey(evt)) {
     evt.stopPropagation();
@@ -96,6 +95,7 @@ const uploadFormData = async () => {
     showBooklet('success');
     closeModal ();
   } catch {
+    unblockUploadSubmit();
     showBooklet('error');
   }
 };
