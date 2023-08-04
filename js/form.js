@@ -41,7 +41,7 @@ const modalCloseHandler = () => {
   document.removeEventListener('keydown', onDocumentKeydown);
 };
 
-const onModalOpen = () => {
+const onUploadInputChange = () => {
   uploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
   uploadCancel.addEventListener('click', modalCloseHandler);
@@ -103,4 +103,4 @@ pristine.addValidator(textHashtags, hasValidTags, ErrorText.INVALID_PATTERN,SECO
 
 uploadForm.addEventListener('submit', onUploadFormSubmit);
 
-uploadInput.addEventListener('change', onModalOpen);
+uploadInput.addEventListener('change', onUploadInputChange);
