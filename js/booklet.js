@@ -8,7 +8,7 @@ export const isErrorCls = () => document.querySelector('.error');
 const onDocumentKeydown = (evt) => {
   if (isEscapeKey(evt)) {
     evt.preventDefault();
-    closePopup(evt);
+    closePopup();
   }
 };
 
@@ -17,7 +17,7 @@ function closePopup () {
   document.removeEventListener('keydown', onDocumentKeydown);
 }
 
-const onBookletClick = (evt, cls) => {
+const checkEventTargetClassList = (evt, cls) => {
   const classList = evt.target.classList;
   if (classList.contains(`${cls}__inner`) || classList.contains(`${cls}__title`)) {
     return;
@@ -38,5 +38,5 @@ export function showBooklet(cls) {
 
   document.addEventListener('keydown', onDocumentKeydown);
   bookletCloseButton.addEventListener('click', onCloseButtonClick);
-  booklet.addEventListener('click',(e) => onBookletClick (e, cls));
+  booklet.addEventListener('click',(e) => checkEventTargetClassList (e, cls));
 }

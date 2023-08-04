@@ -1,3 +1,8 @@
+import {isEscapeKey} from './util.js';
+import {sendData} from './api.js';
+import {showBooklet, isErrorCls} from './booklet.js';
+import {resetDefault} from './range-slider.js';
+
 const MAX_HASHTAG_COUNT = 5;
 const ALLOWED_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const ErrorText = {
@@ -9,11 +14,6 @@ const ErrorText = {
 const TOP_PRIORITY = 1;
 const SECONDARY_PRIORITY = 2;
 const TERTIARY_PRIORITY = 3;
-
-import {isEscapeKey} from './util.js';
-import {sendData} from './api.js';
-import {showBooklet, isErrorCls} from './booklet.js';
-import {resetDefault} from './range-slider.js';
 
 const uploadOverlay = document.querySelector('.img-upload__overlay');
 const uploadInput = document.querySelector('.img-upload__input');
@@ -41,7 +41,7 @@ const modalCloseHandler = () => {
   document.removeEventListener('keydown', onDocumentKeydown);
 };
 
-const modalOpenHandler = () => {
+const onUploadInputChange = () => {
   uploadOverlay.classList.remove('hidden');
   body.classList.add('modal-open');
   uploadCancel.addEventListener('click', modalCloseHandler);
@@ -103,4 +103,4 @@ pristine.addValidator(textHashtags, hasValidTags, ErrorText.INVALID_PATTERN,SECO
 
 uploadForm.addEventListener('submit', onUploadFormSubmit);
 
-uploadInput.addEventListener('change', modalOpenHandler);
+uploadInput.addEventListener('change', onUploadInputChange);
