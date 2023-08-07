@@ -3,6 +3,10 @@ import {sendData} from './api.js';
 import {showBooklet, isErrorCls} from './booklet.js';
 import {resetDefault} from './range-slider.js';
 
+const TOP_PRIORITY = 1;
+const SECONDARY_PRIORITY = 2;
+const TERTIARY_PRIORITY = 3;
+
 const MAX_HASHTAG_COUNT = 5;
 const ALLOWED_SYMBOLS = /^#[a-zа-яё0-9]{1,19}$/i;
 const ErrorText = {
@@ -10,10 +14,6 @@ const ErrorText = {
   NOT_UNIQUE: 'Хэштеги должны быть уникальными',
   INVALID_PATTERN: 'Неправильный хэштег',
 };
-
-const TOP_PRIORITY = 1;
-const SECONDARY_PRIORITY = 2;
-const TERTIARY_PRIORITY = 3;
 
 const uploadOverlay = document.querySelector('.img-upload__overlay');
 const uploadInput = document.querySelector('.img-upload__input');

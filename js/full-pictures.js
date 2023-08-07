@@ -1,15 +1,15 @@
 import { isEscapeKey } from './util.js';
 import { dataPhotos } from './load.js';
 
+const COMMENTS_PER_PORTION = 5;
+const STEP = 1;
+
 const bigPicture = document.querySelector('.big-picture');
 const commentsLoader = bigPicture.querySelector('.comments-loader');
 const commentsCounter = bigPicture.querySelector('.social__comment-count');
 const bigPictureModal = document.querySelector('.big-picture');
 const picturesContainer = document.querySelector('.pictures');
 const bigPictureClose = bigPictureModal.querySelector('.big-picture__cancel');
-
-const COMMENTS_PER_PORTION = 5;
-const STEP = 1;
 
 let loadingStep;
 
